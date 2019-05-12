@@ -10,7 +10,7 @@ apply plugin: 'kotlin-kapt'
 
 kapt {
     arguments{
-
+        arg("AROUTER_MODULE_NAME", project.getName())
         arg('eventBusIndex',"${rootProject.ext.applicationId}.${project.name}.MyEventBusIndex")
     }
 
@@ -62,6 +62,8 @@ dependencies {
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.dependencies.arouterAnnotationProcessor"
 
     implementation project(":base")
+
+
 
     //moduleA跳转到moduleB  debug模式
     if(rootProject.ext.isDebugs.isModuleADebug &&!rootProject.ext.isDebugs.isModuleBDebug){

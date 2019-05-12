@@ -1,7 +1,5 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
+rootProject.ext.setLibModuleDefaultConfig project
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -22,8 +20,4 @@ android {
 
 }
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.core:core-ktx:$rootProject.kotlin.ktxVersion"
-}
