@@ -13,7 +13,7 @@ Router path下沉到基础库。
 也提到了这件事情，并且自创性的使用了一种叫“.api”化的方式来解决这件事情。原理是在编译期将公用接口下沉到基础库同层级，
 供其他module使用，而这段代码的维护仍然放到非基础库中。这种base库不会膨胀，代码维护的责任制更明确，确定挺不错。如下图：
 
-<img src="./pictures/Android模块化架构图2.png" width="50%" height="50%" />
+<img src="./pictures/Android模块化架构图2.png" width="80%" height="80%" />
 
 在ModuleA，B把XXXBusEvents、XXXRouterParams,暴露的公用接口文件后缀名以.api
 （并不要求一定.api后者，只要跟后续的自动Api化插件或者脚本一致就行）命名，
