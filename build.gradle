@@ -1,0 +1,75 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    apply from: 'Config.gradle'
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlin.kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+
+    ext.autoImportApiDependency(this)
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+//def autoImportApiDependency(){
+//    def children = this.gradle.rootProject.childProjects
+//    //遍历所有child project
+//    children.each {child ->
+//        //判断 是否同时存在 *** module 和 ***-api module
+//        if(child.key.contains("-api") && children.containsKey(child.key.substring(0,child.key.length() - 4))){
+//            print "\n"
+//
+//            def targetKey = child.key.substring(0,child.key.length() - 4)
+//            def targetProject = children[targetKey]
+//
+//            targetProject.afterEvaluate {
+//
+//                print '*********************\n'
+//                print targetProject.dependencies
+//                //通过打印 所有dependencies，推断需要添加如下两个依赖
+//                targetProject.dependencies.add("implementation",targetProject.dependencies.create(project(":" + child.key)))
+//                targetProject.dependencies.add("implementationDependenciesMetadata",targetProject.dependencies.create(project(":" + child.key)))
+//
+//                //打印 module 添加的依赖
+//                targetProject.configurations.each {configuration ->
+//                    print '\n---------------------------------------\n'
+//                    configuration.allDependencies.each { dependency ->
+//
+//                        print configuration.name + "--->" +dependency.group + ":" + dependency.name + ":" + dependency.version +'\n'
+//                    }
+//
+//                }
+//
+//
+//
+//                print '*********************\n'
+//            }
+//
+//        }
+//
+//
+//    }
+//}
+
+
+
+

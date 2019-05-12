@@ -1,0 +1,9 @@
+package com.sihaixuan.component.modulea;
+
+public class AEvent{
+    public String message;
+    public AEvent(String message){
+        this.message = message;
+    }
+
+}

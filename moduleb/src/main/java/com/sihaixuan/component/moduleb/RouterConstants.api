@@ -1,0 +1,15 @@
+package com.sihaixuan.component.moduleb;
+
+/**
+ * 项目名称：ComponentDemo
+ * 类描述：
+ * 创建人：toney
+ * 创建时间：2019/5/9 15:17
+ * 邮箱：xiyangfeisa@foxmail.com
+ * 备注：
+ *
+ * @version 1.0
+ */
+public interface RouterConstants {
+    String BACITIVTY_PATH = "/moduleb/BActivity";
+}

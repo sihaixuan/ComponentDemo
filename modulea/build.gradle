@@ -1,0 +1,74 @@
+if (rootProject.ext.isDebugs.isModuleADebug) {
+    rootProject.ext.setAppModuleDefaultConfig project
+} else {
+    rootProject.ext.setLibModuleDefaultConfig project
+}
+
+
+apply plugin: 'kotlin-kapt'
+
+
+kapt {
+    arguments{
+
+        arg('eventBusIndex',"${rootProject.ext.applicationId}.${project.name}.MyEventBusIndex")
+    }
+
+}
+android {
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets{
+        main{
+            if(rootProject.ext.isDebugs.isModuleADebug){
+                manifest.srcFile 'src/app/AndroidManifest.xml'
+                res.srcDirs = ['src/app/res','src/main/res']
+
+            }else{
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                res.srcDirs = ['src/main/res']
+                java.srcDirs = ['src/main/java']
+                kotlin.srcDirs = ['src/main/java']
+            }
+
+            print '**********************************\n'
+            print "manifest.srcFile = ${manifest.srcFile}\n"
+            print "java.srcDirs. = ${java.srcDirs}\n"
+            print "kotlin.srcDirs. = ${kotlin.srcDirs}\n"
+            print "res.srcDirs. = ${kotlin.srcDirs}\n"
+            print '**********************************\n'
+        }
+    }
+
+    lintOptions { abortOnError false }
+
+}
+
+dependencies {
+
+
+    implementation "org.greenrobot:eventbus:$rootProject.ext.dependencies.eventbus"
+    kapt "org.greenrobot:eventbus-annotation-processor:$rootProject.ext.dependencies.eventbusAnnotationProcessor"
+
+    implementation ("com.alibaba:arouter-api:$rootProject.ext.dependencies.arouter"){
+        exclude group: 'com.android.support'
+    }
+    kapt "com.alibaba:arouter-compiler:$rootProject.ext.dependencies.arouterAnnotationProcessor"
+
+    implementation project(":base")
+
+    //moduleA跳转到moduleB  debug模式
+    if(rootProject.ext.isDebugs.isModuleADebug &&!rootProject.ext.isDebugs.isModuleBDebug){
+        implementation project(":moduleb")
+    }
+
+
+    implementation project(":moduleb-api")
+
+}

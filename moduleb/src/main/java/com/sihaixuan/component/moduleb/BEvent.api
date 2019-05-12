@@ -1,0 +1,9 @@
+package com.sihaixuan.component.moduleb;
+
+public class BEvent{
+    public String message;
+    public BEvent(String message){
+        this.message = message;
+    }
+
+}
