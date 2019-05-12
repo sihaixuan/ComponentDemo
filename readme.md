@@ -113,12 +113,13 @@ includeWithApi(":moduleb",":base")
 ```
 
 rebuild后，就可以看到moduleA-api,moduleB-api,并有对应的java文件如下图：
+
 ![test](./pictures/5.png)
 
 
 
 添加moduleA路由到moduleB，moduleB给moduleA发送事件逻辑，进行打包，会报如下错误：
-![test](./pictures/5.png)
+![test](./pictures/6.png)
 
 很显然，ARouter注解处理器无法识别.api文件，path置为null处理，在moduleA,B添加对应的***-api模块依赖，就可以打包成功了。
 
