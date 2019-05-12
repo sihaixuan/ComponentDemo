@@ -1,7 +1,4 @@
 
-
-
-
 在将业务进行模块化时，避免不了模块页面路由和模块通信，
 大多数我们会用到ARouter,EventBus三方库。
 模块化过程中有一个尴尬的问题摆在面前：Event事件、Router path放在哪里？
@@ -184,13 +181,17 @@ ARouter::Compiler An exception is encountered, [null]
 
 业务模块moduleA处于集成模式时，即集成到App壳工程中去，也会将单一模块做
 成App启动的源码和资源打包apk中，尽管设置了sourceSets,也没效果。
+
 ![test](./pictures/7.png)
 
 问题就出在debug文件夹的名字，把debug文件夹改成其他名字，就没有这个问题了，是不是很奇怪！没去究其原因。
 
 参考资料：
+
 [微信 Android 模块化架构重构实践（上）](https://cloud.tencent.com/developer/article/1005631)
+
 [Android实现模块 api 化](https://www.jianshu.com/p/c4d1704f9680)
+
 [美团猫眼电影Android模块化实战总结](https://www.jianshu.com/p/393b8e3c0cfa)
 
 
