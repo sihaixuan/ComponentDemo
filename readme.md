@@ -6,8 +6,6 @@
 Router path下沉到基础库。
 这样导致的结果是基础库越来越大，至多 把Event事件、Router path摆放在独立的module,然后基础库依赖这个库，如下图所示：
 
-![test](./pictures/Android模块化架构图1.png)
-
 <img src="./pictures/Android模块化架构图1.png" width="50%" height="50%" />
 
 我们希望业务模块发送的事件，注解使用的Router path都在模块自己这里定义，而不是下层到基础库,当其他module需要路由、事件、
@@ -15,7 +13,7 @@ Router path下沉到基础库。
 也提到了这件事情，并且自创性的使用了一种叫“.api”化的方式来解决这件事情。原理是在编译期将公用接口下沉到基础库同层级，
 供其他module使用，而这段代码的维护仍然放到非基础库中。这种base库不会膨胀，代码维护的责任制更明确，确定挺不错。如下图：
 
-![test](./pictures/Android模块化架构图2.png)
+<img src="./pictures/Android模块化架构图2.png" width="50%" height="50%" />
 
 在ModuleA，B把XXXBusEvents、XXXRouterParams,暴露的公用接口文件后缀名以.api
 （并不要求一定.api后者，只要跟后续的自动Api化插件或者脚本一致就行）命名，
