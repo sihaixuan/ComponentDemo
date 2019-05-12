@@ -189,9 +189,7 @@ ARouter::Compiler An exception is encountered, [null]
 参考资料：
 
 [微信 Android 模块化架构重构实践（上）](https://cloud.tencent.com/developer/article/1005631)
-
 [Android实现模块 api 化](https://www.jianshu.com/p/c4d1704f9680)
-
 [美团猫眼电影Android模块化实战总结](https://www.jianshu.com/p/393b8e3c0cfa)
 
 
