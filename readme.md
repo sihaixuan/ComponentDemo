@@ -8,6 +8,8 @@ Router path下沉到基础库。
 
 ![test](./pictures/Android模块化架构图1.png)
 
+<img src="./pictures/Android模块化架构图1.png" width="50%" height="50%" />
+
 我们希望业务模块发送的事件，注解使用的Router path都在模块自己这里定义，而不是下层到基础库,当其他module需要路由、事件、
 接口就暴露出来。关于这点《[微信Android模块化架构重构实践](https://cloud.tencent.com/developer/article/1005631)》
 也提到了这件事情，并且自创性的使用了一种叫“.api”化的方式来解决这件事情。原理是在编译期将公用接口下沉到基础库同层级，
