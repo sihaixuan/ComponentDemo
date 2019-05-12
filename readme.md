@@ -22,10 +22,12 @@ rebuild之后自动生成ModuleA-api，ModuleB-api 模块，ModuleA，B也会自
 讲完了原理，下面就可以实现，这里使用ARouter,EventBus，只对Java文件进行Api化，步骤如下：
 
 新建工程，创建base、moduleA、moduleB 模块在moudleA,moduleB中创建api文件
+
 ![test](./pictures/3.png)
 
 默认情况下，Android stuio 是不能识别.api文件，如果想编辑.api后缀的java文件，
 为了能让Android Studio继续高亮该怎么办？可以在File Type中把.api作为java文件类型，操作如下图：
+
 ![test](./pictures/4.png)
 
 设置好后，可以在.api文件中像java文件一样愉快撸代码了，其他类可以引用.api中的类。
@@ -174,12 +176,13 @@ ext.autoImportApiDependency(this)
 
 可以正常打包，并成功运行了。
 
-遇坑集锦：
-kotlin集成ARouter，尽管设置了AROUTER_MODULE_NAME，依然报如下错误：
+###遇坑集锦：
+
+1.kotlin集成ARouter，尽管设置了AROUTER_MODULE_NAME，依然报如下错误：
 ARouter::Compiler An exception is encountered, [null] 
 可以考虑是否是gradle和 kotlin 版本的问题。
 
-业务模块moduleA处于集成模式时，即集成到App壳工程中去，也会将单一模块做
+2.业务模块moduleA处于集成模式时，即集成到App壳工程中去，也会将单一模块做
 成App启动的源码和资源打包apk中，尽管设置了sourceSets,也没效果。
 
 ![test](./pictures/7.png)
@@ -189,7 +192,9 @@ ARouter::Compiler An exception is encountered, [null]
 参考资料：
 
 [微信 Android 模块化架构重构实践（上）](https://cloud.tencent.com/developer/article/1005631)
+
 [Android实现模块 api 化](https://www.jianshu.com/p/c4d1704f9680)
+
 [美团猫眼电影Android模块化实战总结](https://www.jianshu.com/p/393b8e3c0cfa)
 
 
