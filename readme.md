@@ -198,5 +198,7 @@ ARouter::Compiler An exception is encountered, [null]
 
 [美团猫眼电影Android模块化实战总结](https://www.jianshu.com/p/393b8e3c0cfa)
 
+关注公众号：
 
+![test](./pictures/20190428170329.jpg)
 
